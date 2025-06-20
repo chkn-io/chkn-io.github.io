@@ -1,3 +1,4 @@
+
 export interface Project {
   title: string;
   description: string;
@@ -26,7 +27,17 @@ export interface WebDesign {
   image: string;
 }
 
-export const projects: Project[] = [
+// Fisher-Yates shuffle algorithm for randomizing arrays
+const shuffleArray = <T>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const projectsData: Project[] = [
   {
     title: "Inventory System",
     description: "An inventory management system developed for the Provincial Government of Bataan to manage supplies and materials efficiently.",
@@ -59,7 +70,7 @@ export const projects: Project[] = [
   }
 ];
 
-export const websites: Website[] = [
+const websitesData: Website[] = [
   {
     title: "SkySoles US",
     url: "https://skysoles.com",
@@ -131,10 +142,40 @@ export const websites: Website[] = [
     url: "https://www.healingstlchiropractic.com/",
     description: "Your partner in family health and wellness, delivering holistic wellness for every family member",
     image: "/lovable-uploads/a3024f84-25f8-4474-b2e1-6494fe0bf183.png"
+  },
+  {
+    title: "The Kingdom Chiropractic",
+    url: "https://www.thekingdomchiro.com/",
+    description: "Chiropractor in Fishers empowering families and community with specific chiropractic care that goes beyond the symptom",
+    image: "/lovable-uploads/4290d841-def8-4618-96cc-77e7a491b8ee.png"
+  },
+  {
+    title: "Frazier Family Chiropractic",
+    url: "https://www.frazierchiro.com/",
+    description: "Experience neurologically focused chiropractic care and holistic family care at Frazier Chiropractic in Omaha",
+    image: "/lovable-uploads/b5d91b4a-d044-4af9-89a2-b522d995ad0b.png"
+  },
+  {
+    title: "Laser Chiropractic",
+    url: "https://www.laserchiro.com/",
+    description: "Expert chiropractic care from a female chiropractor in Overland Park to help you reclaim your active, vibrant life naturally",
+    image: "/lovable-uploads/4d9dac25-6016-4874-b6dd-cc7da4fe64ef.png"
+  },
+  {
+    title: "Infinite Healing Center",
+    url: "https://www.infinitehealingcenter.org/",
+    description: "Holistic healing in Northeast Wisconsin and beyond, offering complete wellness for mind, body, and soul in Green Bay",
+    image: "/lovable-uploads/4a146e3b-8d67-434f-8059-eed7fdcc0193.png"
+  },
+  {
+    title: "Zamora Chiropractic",
+    url: "https://www.zamorachiro.com/",
+    description: "Altamonte Springs' trusted chiropractor focused on your health and wellness needs offering gentle, effective chiropractic care",
+    image: "/lovable-uploads/197ca088-3e29-424b-b928-0186e600f48c.png"
   }
 ];
 
-export const webDesigns: WebDesign[] = [
+const webDesignsData: WebDesign[] = [
   {
     title: "Studer Education",
     url: "https://www.figma.com/design/RnWUjyWBpMfux8KkodmtjB/StuderEducation?node-id=0-1&t=6jDbAn15nMFNdKzC-1",
@@ -155,7 +196,7 @@ export const webDesigns: WebDesign[] = [
   }
 ];
 
-export const analytics: Analytics[] = [
+const analyticsData: Analytics[] = [
   {
     title: "Industroquip Analytics Dashboard",
     url: "https://lookerstudio.google.com/reporting/35cb89af-8c32-4134-b852-821a9fcc09af",
@@ -163,3 +204,9 @@ export const analytics: Analytics[] = [
     image: "/lovable-uploads/35efdf35-6565-4ec5-9c05-dc96a20a6693.png"
   }
 ];
+
+// Export randomized arrays
+export const projects = shuffleArray(projectsData);
+export const websites = shuffleArray(websitesData);
+export const webDesigns = shuffleArray(webDesignsData);
+export const analytics = shuffleArray(analyticsData);
