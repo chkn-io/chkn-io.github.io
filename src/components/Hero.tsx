@@ -53,7 +53,7 @@ const Hero = () => {
               duration={500}
               className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors cursor-pointer inline-block"
             >
-              Get in Touch
+              Schedule a Meeting
             </Link>
           </div>
         </div>
