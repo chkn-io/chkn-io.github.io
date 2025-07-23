@@ -9,6 +9,7 @@ interface Website {
   url: string;
   description: string;
   image: string;
+  category: string;
 }
 
 interface WebsitesSectionProps {
@@ -17,6 +18,17 @@ interface WebsitesSectionProps {
 
 const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
   const [visibleCount, setVisibleCount] = useState(6);
+  
+  // Group websites by category
+  const websitesByCategory = websites.reduce((acc, website) => {
+    if (!acc[website.category]) {
+      acc[website.category] = [];
+    }
+    acc[website.category].push(website);
+    return acc;
+  }, {} as Record<string, Website[]>);
+
+  const categories = Object.keys(websitesByCategory);
   
   const showMore = () => {
     setVisibleCount(prevCount => Math.min(prevCount + 6, websites.length));
@@ -28,15 +40,27 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
   return (
     <>
       <SectionTitle title="Websites" className="mt-20" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {visibleWebsites.map((website, index) => (
-          <WebsiteCard 
-            key={index} 
-            website={website} 
-            index={index} 
-          />
-        ))}
-      </div>
+      {categories.map((category) => (
+        <div key={category} className="mb-12">
+          <h3 className="text-xl font-semibold text-foreground mb-6 border-b border-border pb-2">
+            {category}
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {websitesByCategory[category]
+              .filter((_, index) => websites.indexOf(websitesByCategory[category][index]) < visibleCount)
+              .map((website) => {
+                const originalIndex = websites.indexOf(website);
+                return (
+                  <WebsiteCard 
+                    key={originalIndex} 
+                    website={website} 
+                    index={originalIndex} 
+                  />
+                );
+              })}
+          </div>
+        </div>
+      ))}
       {hasMore && (
         <div className="flex justify-center mt-8">
           <Button 

@@ -11,6 +11,7 @@ export interface Website {
   url: string;
   description: string;
   image: string;
+  category: string;
 }
 
 export interface Analytics {
@@ -75,103 +76,120 @@ const websitesData: Website[] = [
     title: "SkySoles US",
     url: "https://skysoles.com",
     description: "Aviation footwear with focus on innovation",
-    image: "/lovable-uploads/a92960e6-e5db-408d-b6f3-e1242ae12d5a.png"
+    image: "/lovable-uploads/a92960e6-e5db-408d-b6f3-e1242ae12d5a.png",
+    category: "E-commerce"
   },
   {
     title: "Stage4Tuning",
     url: "https://stage4tuning.com/",
     description: "Automotive tuning software and services platform",
-    image: "/lovable-uploads/36a51783-661c-44db-811e-10c7ebdf5bac.png"
+    image: "/lovable-uploads/36a51783-661c-44db-811e-10c7ebdf5bac.png",
+    category: "Automotive"
   },
   {
     title: "Exhali",
     url: "https://exhali.us/",
     description: "Premium athletic wear and lifestyle brand",
-    image: "/lovable-uploads/b8e17588-aa73-495c-ac11-aef6c6c753b2.png"
+    image: "/lovable-uploads/b8e17588-aa73-495c-ac11-aef6c6c753b2.png",
+    category: "E-commerce"
   },
   {
     title: "Precision Motorsports",
     url: "https://jkkg54w5fr.wpdns.site/",
     description: "European and exotic automotive specialists",
-    image: "/lovable-uploads/18e3305f-224e-45bd-afee-fa5584928475.png"
+    image: "/lovable-uploads/18e3305f-224e-45bd-afee-fa5584928475.png",
+    category: "Automotive"
   },
   {
     title: "ShopTake15",
     url: "https://shoptake15.com/",
     description: "E-commerce platform for wellness products",
-    image: "/lovable-uploads/b75fedc5-e723-4ecd-a0af-b358b9afeee0.png"
+    image: "/lovable-uploads/b75fedc5-e723-4ecd-a0af-b358b9afeee0.png",
+    category: "E-commerce"
   },
   {
     title: "EASTWOODS Balanga",
     url: "https://epcst.edu.ph",
     description: "Official website of EASTWOODS Professional College of Science and Technology",
-    image: "/lovable-uploads/18e3305f-224e-45bd-afee-fa5584928471.jpg"
+    image: "/lovable-uploads/18e3305f-224e-45bd-afee-fa5584928471.jpg",
+    category: "Education"
   },
   {
     title: "Greenside Property Care",
     url: "https://www.greensidepropertycare.com/",
     description: "Professional lawn care and property maintenance services",
-    image: "/lovable-uploads/ba4fc123-a300-4914-be3b-937cfa015d35.png"
+    image: "/lovable-uploads/ba4fc123-a300-4914-be3b-937cfa015d35.png",
+    category: "Professional Services"
   },
   {
     title: "Meylor Chiropractic",
     url: "https://www.meylorchiro.com/",
     description: "Trusted chiropractic and acupuncture care in Lenexa, Kansas",
-    image: "/lovable-uploads/937a7636-24b1-4046-934c-c3d8883e1da8.png"
+    image: "/lovable-uploads/937a7636-24b1-4046-934c-c3d8883e1da8.png",
+    category: "Healthcare"
   },
   {
     title: "Birch Chiropractic & Rehab",
     url: "https://www.birchchirokc.com/",
     description: "Top chiropractor in North Kansas City offering comprehensive chiropractic and rehabilitation services",
-    image: "/lovable-uploads/950e9487-409e-4e7d-98a4-db618559c6e0.png"
+    image: "/lovable-uploads/950e9487-409e-4e7d-98a4-db618559c6e0.png",
+    category: "Healthcare"
   },
   {
     title: "On With Life Chiropractic",
     url: "https://www.onwithlifechiro.com/",
     description: "Top Lenexa chiropractor focused on helping you feel better and live better",
-    image: "/lovable-uploads/230985ad-d7f9-405d-8b68-6f4a42b6fc7a.png"
+    image: "/lovable-uploads/230985ad-d7f9-405d-8b68-6f4a42b6fc7a.png",
+    category: "Healthcare"
   },
   {
     title: "Stinson Chiropractic",
     url: "https://www.stinsonchiro.com/",
     description: "Your go-to chiropractor in Springdale for integrative health and comprehensive chiropractic services",
-    image: "/lovable-uploads/57ca868b-4739-42b6-aca3-a8f854047a46.png"
+    image: "/lovable-uploads/57ca868b-4739-42b6-aca3-a8f854047a46.png",
+    category: "Healthcare"
   },
   {
     title: "Healing STL Chiropractic",
     url: "https://www.healingstlchiropractic.com/",
     description: "Your partner in family health and wellness, delivering holistic wellness for every family member",
-    image: "/lovable-uploads/a3024f84-25f8-4474-b2e1-6494fe0bf183.png"
+    image: "/lovable-uploads/a3024f84-25f8-4474-b2e1-6494fe0bf183.png",
+    category: "Healthcare"
   },
   {
     title: "The Kingdom Chiropractic",
     url: "https://www.thekingdomchiro.com/",
     description: "Chiropractor in Fishers empowering families and community with specific chiropractic care that goes beyond the symptom",
-    image: "/lovable-uploads/4290d841-def8-4618-96cc-77e7a491b8ee.png"
+    image: "/lovable-uploads/4290d841-def8-4618-96cc-77e7a491b8ee.png",
+    category: "Healthcare"
   },
   {
     title: "Frazier Family Chiropractic",
     url: "https://www.frazierchiro.com/",
     description: "Experience neurologically focused chiropractic care and holistic family care at Frazier Chiropractic in Omaha",
-    image: "/lovable-uploads/b5d91b4a-d044-4af9-89a2-b522d995ad0b.png"
+    image: "/lovable-uploads/b5d91b4a-d044-4af9-89a2-b522d995ad0b.png",
+    category: "Healthcare"
   },
   {
     title: "Laser Chiropractic",
     url: "https://www.laserchiro.com/",
     description: "Expert chiropractic care from a female chiropractor in Overland Park to help you reclaim your active, vibrant life naturally",
-    image: "/lovable-uploads/4d9dac25-6016-4874-b6dd-cc7da4fe64ef.png"
+    image: "/lovable-uploads/4d9dac25-6016-4874-b6dd-cc7da4fe64ef.png",
+    category: "Healthcare"
   },
   {
     title: "Infinite Healing Center",
     url: "https://www.infinitehealingcenter.org/",
     description: "Holistic healing in Northeast Wisconsin and beyond, offering complete wellness for mind, body, and soul in Green Bay",
-    image: "/lovable-uploads/4a146e3b-8d67-434f-8059-eed7fdcc0193.png"
+    image: "/lovable-uploads/4a146e3b-8d67-434f-8059-eed7fdcc0193.png",
+    category: "Healthcare"
   },
   {
     title: "Zamora Chiropractic",
     url: "https://www.zamorachiro.com/",
     description: "Altamonte Springs' trusted chiropractor focused on your health and wellness needs offering gentle, effective chiropractic care",
-    image: "/lovable-uploads/197ca088-3e29-424b-b928-0186e600f48c.png"
+    image: "/lovable-uploads/197ca088-3e29-424b-b928-0186e600f48c.png",
+    category: "Healthcare"
   }
 ];
 
