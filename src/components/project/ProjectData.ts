@@ -190,6 +190,69 @@ const websitesData: Website[] = [
     description: "Altamonte Springs' trusted chiropractor focused on your health and wellness needs offering gentle, effective chiropractic care",
     image: "/lovable-uploads/197ca088-3e29-424b-b928-0186e600f48c.png",
     category: "Healthcare"
+  },
+  {
+    title: "DD Movers",
+    url: "https://ddmovers.netlify.app/",
+    description: "Professional moving services in Bryan College Station Texas with over 20 years of reliable moving, packing, and storage services",
+    image: "/lovable-uploads/70ea55ac-06fd-4e72-9ece-3931a66b939d.png",
+    category: "Professional Services"
+  },
+  {
+    title: "Ephrata Area Christians",
+    url: "https://www.ephrataareachristians.com/",
+    description: "A welcoming community of believers in Lancaster County, PA, devoted to worshiping God, growing in faith, and walking together",
+    image: "/lovable-uploads/d7ddd010-569c-41d9-9b7b-055419d95143.png",
+    category: "Religious/Community"
+  },
+  {
+    title: "His House Foundation",
+    url: "https://hishousefound.netlify.app/",
+    description: "Community Campus & FUEL Academy turning an old hotel into a campus of hope through comprehensive community resources",
+    image: "/lovable-uploads/06f3b79d-574b-456c-b72b-cd686f942b3f.png",
+    category: "Non-Profit"
+  },
+  {
+    title: "Corporate Lakes Executive Suites",
+    url: "https://corporatelakes.netlify.app/",
+    description: "Premium office spaces crafted for visionary leaders and growing enterprises where excellence meets ambition",
+    image: "/lovable-uploads/fa044f46-ac50-4c7a-b38f-269238e0b151.png",
+    category: "Professional Services"
+  },
+  {
+    title: "Hope Realized Homes",
+    url: "https://hoperealizedhomes.netlify.app/",
+    description: "Bringing the power of housing, compassion and hope to change lives for people recovering from addiction in New Mexico",
+    image: "/lovable-uploads/cf22fee9-a5d4-4696-b003-2b46d177f979.png",
+    category: "Non-Profit"
+  },
+  {
+    title: "InLight Inc",
+    url: "https://inlightwalk.netlify.app/",
+    description: "2025 Marriage Retreat offering transformative weekend of strengthening marriages through God-centered instruction and fellowship",
+    image: "/lovable-uploads/cf27be5a-b304-489a-b65e-a089b065a394.png",
+    category: "Religious/Community"
+  },
+  {
+    title: "Hal Hammons",
+    url: "https://halhammons.netlify.app/",
+    description: "Podcaster, Preacher & Writer offering faith, insight, and thoughtful conversation about the things that matter",
+    image: "/lovable-uploads/51f05cdf-25aa-4879-ba29-be167f0de5ab.png",
+    category: "Personal/Media"
+  },
+  {
+    title: "Black Families Matter",
+    url: "https://www.blackfamiliesmatter.com/",
+    description: "Strong families build better futures for black youth, creating foundation for productive, meaningful lives",
+    image: "/lovable-uploads/ce8a2924-a0ed-49df-a160-f867f46b31c8.png",
+    category: "Non-Profit"
+  },
+  {
+    title: "Leslie Haines Design",
+    url: "https://lesliehaines.com/",
+    description: "Visual Storytelling by Graphic Designer, Artist, Professor & Orange Evangelist showcasing creative portfolio and design work",
+    image: "/lovable-uploads/be21c149-addd-4114-a0b5-612442a843a0.png",
+    category: "Creative Services"
   }
 ];
 
