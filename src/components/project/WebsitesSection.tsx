@@ -3,6 +3,7 @@ import { useState } from "react";
 import WebsiteCard from "./WebsiteCard";
 import SectionTitle from "./SectionTitle";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface Website {
   title: string;
@@ -50,37 +51,34 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
   };
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-8">
       <SectionTitle title="Websites" className="mt-20" />
       
-      <div className="grid gap-12">
-        {categories.map((category, categoryIndex) => {
+      <Tabs defaultValue={categories[0]} className="w-full">
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 h-auto p-1 bg-muted/50">
+          {categories.map((category) => (
+            <TabsTrigger 
+              key={category} 
+              value={category}
+              className="px-4 py-3 text-sm font-medium rounded-md data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm transition-all"
+            >
+              <div className="flex flex-col items-center gap-1">
+                <span>{category}</span>
+                <span className="text-xs text-muted-foreground">
+                  {websitesByCategory[category].length}
+                </span>
+              </div>
+            </TabsTrigger>
+          ))}
+        </TabsList>
+
+        {categories.map((category) => {
           const categoryWebsites = websitesByCategory[category];
           const visibleCount = visibleCounts[category];
           const hasMore = visibleCount < categoryWebsites.length;
-          
-          return (
-            <div 
-              key={category} 
-              className="relative group"
-            >
-              {/* Category Header with enhanced styling */}
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <div className="h-1 w-12 bg-gradient-to-r from-primary to-accent rounded-full"></div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground">
-                      {category}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {categoryWebsites.length} {categoryWebsites.length === 1 ? 'website' : 'websites'}
-                    </p>
-                  </div>
-                </div>
-                <div className="hidden md:block h-px bg-gradient-to-r from-primary/20 to-transparent flex-1 ml-8"></div>
-              </div>
 
-              {/* Websites Grid */}
+          return (
+            <TabsContent key={category} value={category} className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {categoryWebsites
                   .slice(0, visibleCount)
@@ -97,7 +95,6 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
                   ))}
               </div>
 
-              {/* Show More Button */}
               {hasMore && (
                 <div className="flex justify-center mt-10">
                   <Button 
@@ -113,10 +110,10 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
                   </Button>
                 </div>
               )}
-            </div>
+            </TabsContent>
           );
         })}
-      </div>
+      </Tabs>
     </div>
   );
 };
