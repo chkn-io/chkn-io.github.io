@@ -51,26 +51,30 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       <SectionTitle title="Websites" className="mt-20" />
       
       <Tabs defaultValue={categories[0]} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 h-auto p-1 bg-muted/50">
+        {/* Custom Pills Navigation */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12 p-6 bg-gradient-to-r from-muted/30 via-muted/50 to-muted/30 rounded-2xl backdrop-blur-sm">
           {categories.map((category) => (
             <TabsTrigger 
               key={category} 
               value={category}
-              className="px-4 py-3 text-sm font-medium rounded-md data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm transition-all"
+              className="group relative px-6 py-4 rounded-full border-2 border-transparent bg-background/60 hover:bg-background transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary/20 data-[state=active]:shadow-lg data-[state=active]:shadow-primary/25 hover:scale-105 hover:shadow-md"
             >
-              <div className="flex flex-col items-center gap-1">
-                <span>{category}</span>
-                <span className="text-xs text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <span className="font-medium text-sm">{category}</span>
+                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 group-data-[state=active]:bg-primary-foreground/20 text-xs font-bold transition-colors">
                   {websitesByCategory[category].length}
-                </span>
+                </div>
               </div>
+              
+              {/* Animated glow effect */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-data-[state=active]:opacity-100 transition-opacity duration-300 -z-10 blur-xl"></div>
             </TabsTrigger>
           ))}
-        </TabsList>
+        </div>
 
         {categories.map((category) => {
           const categoryWebsites = websitesByCategory[category];
@@ -78,14 +82,29 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
           const hasMore = visibleCount < categoryWebsites.length;
 
           return (
-            <TabsContent key={category} value={category} className="mt-8">
+            <TabsContent key={category} value={category} className="mt-0">
+              {/* Category stats */}
+              <div className="text-center mb-8 p-4 bg-muted/30 rounded-xl border border-primary/10">
+                <h3 className="text-xl font-semibold text-foreground mb-1">
+                  {category} Portfolio
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Showcasing {categoryWebsites.length} professional {categoryWebsites.length === 1 ? 'website' : 'websites'}
+                </p>
+              </div>
+
+              {/* Websites Grid with stagger animation */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {categoryWebsites
                   .slice(0, visibleCount)
                   .map((website, index) => (
                     <div
                       key={`${category}-${index}`}
-                      className="transform transition-all duration-300 hover:scale-[1.02]"
+                      className="animate-fade-in hover-scale"
+                      style={{
+                        animationDelay: `${index * 100}ms`,
+                        animationFillMode: 'both'
+                      }}
                     >
                       <WebsiteCard 
                         website={website} 
@@ -96,17 +115,26 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
               </div>
 
               {hasMore && (
-                <div className="flex justify-center mt-10">
+                <div className="flex justify-center mt-12">
                   <Button 
                     onClick={() => showMoreForCategory(category)}
                     variant="outline"
                     size="lg"
-                    className="group/btn border-primary/30 hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                    className="group relative px-8 py-3 bg-gradient-to-r from-primary/5 to-accent/5 border-primary/30 hover:border-primary hover:from-primary/10 hover:to-accent/10 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
                   >
-                    <span className="mr-2">Show More {category}</span>
-                    <span className="text-xs bg-primary/10 px-2 py-1 rounded-full">
-                      +{categoryWebsites.length - visibleCount}
-                    </span>
+                    <span className="mr-3 font-medium">Load More {category}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs bg-primary/15 px-3 py-1 rounded-full font-semibold">
+                        +{categoryWebsites.length - visibleCount}
+                      </span>
+                    </div>
+                    
+                    {/* Animated arrow */}
+                    <div className="absolute right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                      </svg>
+                    </div>
                   </Button>
                 </div>
               )}
