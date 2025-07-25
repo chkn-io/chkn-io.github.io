@@ -55,23 +55,23 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
       <SectionTitle title="Websites" className="mt-20" />
       
       <Tabs defaultValue={categories[0]} className="w-full">
-        {/* Custom Pills Navigation */}
-        <TabsList className="flex flex-wrap justify-center gap-3 mb-12 p-6 bg-gradient-to-r from-muted/30 via-muted/50 to-muted/30 rounded-2xl backdrop-blur-sm h-auto">
+        {/* Bright Pills Navigation */}
+        <TabsList className="flex flex-wrap justify-center gap-4 mb-12 p-6 bg-gradient-secondary rounded-3xl shadow-glow backdrop-blur-sm h-auto border border-primary/20">
           {categories.map((category) => (
             <TabsTrigger 
               key={category} 
               value={category}
-              className="group relative px-6 py-4 rounded-full border-2 border-transparent bg-background/60 hover:bg-background transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary/20 data-[state=active]:shadow-lg data-[state=active]:shadow-primary/25 hover:scale-105 hover:shadow-md"
+              className="group relative px-8 py-5 rounded-full border-2 border-transparent bg-card hover:bg-card/80 transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary/30 data-[state=active]:shadow-bright hover:scale-105 hover:shadow-md"
             >
-              <div className="flex items-center gap-2">
-                <span className="font-medium text-sm">{category}</span>
-                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 group-data-[state=active]:bg-primary-foreground/20 text-xs font-bold transition-colors">
+              <div className="flex items-center gap-3">
+                <span className="font-semibold text-sm">{category}</span>
+                <div className="flex items-center justify-center w-7 h-7 rounded-full bg-accent/20 group-data-[state=active]:bg-primary-foreground/30 text-xs font-bold transition-colors animate-pulse-soft">
                   {websitesByCategory[category].length}
                 </div>
               </div>
               
-              {/* Animated glow effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-data-[state=active]:opacity-100 transition-opacity duration-300 -z-10 blur-xl"></div>
+              {/* Enhanced glow effect */}
+              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 group-data-[state=active]:opacity-20 transition-opacity duration-300 -z-10 blur-xl"></div>
             </TabsTrigger>
           ))}
         </TabsList>
@@ -83,12 +83,12 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
 
           return (
             <TabsContent key={category} value={category} className="mt-0">
-              {/* Category stats */}
-              <div className="text-center mb-8 p-4 bg-muted/30 rounded-xl border border-primary/10">
-                <h3 className="text-xl font-semibold text-foreground mb-1">
+              {/* Bright category stats */}
+              <div className="text-center mb-10 p-6 bg-gradient-primary rounded-2xl border-2 border-accent/30 shadow-glow">
+                <h3 className="text-2xl font-bold text-primary-foreground mb-2">
                   {category} Portfolio
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-primary-foreground/90 font-medium">
                   Showcasing {categoryWebsites.length} professional {categoryWebsites.length === 1 ? 'website' : 'websites'}
                 </p>
               </div>
@@ -120,19 +120,19 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
                     onClick={() => showMoreForCategory(category)}
                     variant="outline"
                     size="lg"
-                    className="group relative px-8 py-3 bg-gradient-to-r from-primary/5 to-accent/5 border-primary/30 hover:border-primary hover:from-primary/10 hover:to-accent/10 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                    className="group relative px-10 py-4 bg-gradient-secondary border-2 border-accent/40 hover:border-accent hover:bg-gradient-primary text-primary-foreground transition-all duration-300 hover:shadow-glow hover:scale-105 rounded-full"
                   >
-                    <span className="mr-3 font-medium">Load More {category}</span>
+                    <span className="mr-4 font-bold">Load More {category}</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs bg-primary/15 px-3 py-1 rounded-full font-semibold">
+                      <span className="text-sm bg-accent/30 px-4 py-2 rounded-full font-bold animate-bounce-gentle">
                         +{categoryWebsites.length - visibleCount}
                       </span>
                     </div>
                     
-                    {/* Animated arrow */}
-                    <div className="absolute right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    {/* Bright animated arrow */}
+                    <div className="absolute right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 animate-bounce-gentle">
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                       </svg>
                     </div>
                   </Button>

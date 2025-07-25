@@ -28,17 +28,18 @@ const WebsiteCard = ({ website, index }: WebsiteCardProps) => {
         rel="noopener noreferrer"
         className="block group"
       >
-        <div className="bg-secondary/50 rounded-xl overflow-hidden border border-primary/10 transition-all hover:border-primary/30">
+        <div className="bg-card rounded-2xl overflow-hidden border-2 border-accent/30 transition-all hover:border-accent hover:shadow-glow hover:shadow-accent/25">
           <div className="aspect-video overflow-hidden relative">
             <img
               src={website.image}
               alt={website.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
+            <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
           </div>
-          <div className="p-6">
-            <h3 className="text-xl font-bold mb-2 text-foreground">{website.title}</h3>
-            <p className="text-gray-400">{website.description}</p>
+          <div className="p-6 bg-gradient-accent">
+            <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">{website.title}</h3>
+            <p className="text-muted-foreground font-medium">{website.description}</p>
           </div>
         </div>
       </a>
