@@ -56,7 +56,7 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
       
       <Tabs defaultValue={categories[0]} className="w-full">
         {/* Custom Pills Navigation */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12 p-6 bg-gradient-to-r from-muted/30 via-muted/50 to-muted/30 rounded-2xl backdrop-blur-sm">
+        <TabsList className="flex flex-wrap justify-center gap-3 mb-12 p-6 bg-gradient-to-r from-muted/30 via-muted/50 to-muted/30 rounded-2xl backdrop-blur-sm h-auto">
           {categories.map((category) => (
             <TabsTrigger 
               key={category} 
@@ -74,7 +74,7 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-data-[state=active]:opacity-100 transition-opacity duration-300 -z-10 blur-xl"></div>
             </TabsTrigger>
           ))}
-        </div>
+        </TabsList>
 
         {categories.map((category) => {
           const categoryWebsites = websitesByCategory[category];
