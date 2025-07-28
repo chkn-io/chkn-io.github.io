@@ -253,6 +253,27 @@ const websitesData: Website[] = [
     description: "Visual Storytelling by Graphic Designer, Artist, Professor & Orange Evangelist showcasing creative portfolio and design work",
     image: "/lovable-uploads/be21c149-addd-4114-a0b5-612442a843a0.png",
     category: "Creative Services"
+  },
+  {
+    title: "Kapri Haircare",
+    url: "https://kaprihaircare.com/pages/retention-bundle",
+    description: "Premium hair care retention bundle for stronger, healthier hair with natural ingredients",
+    image: "/lovable-uploads/c3084097-e282-452e-8ef2-cf2afcebac95.png",
+    category: "E-commerce"
+  },
+  {
+    title: "SophFeet",
+    url: "https://sophfeet.com/",
+    description: "Faith-inspired grip socks and athletic wear with Walk By Faith collection",
+    image: "/lovable-uploads/49771345-39a1-4cc0-b108-1f722b2429fa.png",
+    category: "E-commerce"
+  },
+  {
+    title: "Queendom Aesthetics",
+    url: "https://queendomaesthetics.com/",
+    description: "Premium skincare solutions for clear, radiant skin with professional-grade products",
+    image: "/lovable-uploads/16587867-4ca4-4376-bc11-1ac8725c805a.png",
+    category: "E-commerce"
   }
 ];
 
