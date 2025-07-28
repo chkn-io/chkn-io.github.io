@@ -286,7 +286,7 @@ const websitesData: Website[] = [
     title: "Sista Teas - Inflammation Bundle",
     url: "https://sistateas.com/pages/inflammation-bundle",
     description: "Premium tea blend bundle designed to reduce inflammation and promote natural healing",
-    image: "/lovable-uploads/41e87c63-9917-47c8-860d-bcdfe4fb08b8.png",
+    image: "/lovable-uploads/88caba27-46c4-44ed-98d4-5a121a7dd970.png",
     category: "E-commerce"
   }
 ];
