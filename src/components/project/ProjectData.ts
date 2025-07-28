@@ -274,6 +274,20 @@ const websitesData: Website[] = [
     description: "Premium skincare solutions for clear, radiant skin with professional-grade products",
     image: "/lovable-uploads/16587867-4ca4-4376-bc11-1ac8725c805a.png",
     category: "E-commerce"
+  },
+  {
+    title: "Revelation Health - Refresh & Reset",
+    url: "https://app.gohighlevel.com/v2/preview/1mgGaFwrhxkFYTLsIGck",
+    description: "Discover a new path to wellness - alcohol-free journey toward mental clarity, physical vitality, and emotional balance",
+    image: "/lovable-uploads/41e87c63-9917-47c8-860d-bcdfe4fb08b8.png",
+    category: "Funnel Page"
+  },
+  {
+    title: "Sista Teas - Inflammation Bundle",
+    url: "https://sistateas.com/pages/inflammation-bundle",
+    description: "Premium tea blend bundle designed to reduce inflammation and promote natural healing",
+    image: "/lovable-uploads/41e87c63-9917-47c8-860d-bcdfe4fb08b8.png",
+    category: "E-commerce"
   }
 ];
 
