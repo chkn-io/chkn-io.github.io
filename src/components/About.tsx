@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 3000 })]);
@@ -54,8 +55,8 @@ const About = () => {
               data analysis solutions. My approach combines technical expertise with
               project management skills to deliver high-quality results.
             </p>
-            <a
-              href="https://1drv.ms/b/s!ApMIb45WnH01haom78Ex_4mBTurR8g?e=FCRdls"
+             <Link
+              to="/Resume 7-28-2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full inline-flex items-center gap-2 transition-all"
@@ -65,13 +66,17 @@ const About = () => {
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
             </a>
+            </Link>
           </div>
           <div className="relative animate-slide-up">
             <div className="absolute top-0 right-0 w-full h-full bg-primary/20 rounded-full blur-3xl"></div>
             <img
-              src="/lovable-uploads/c6340ee8-1b05-4d88-b834-224eb1b4e773.png"
+              src="/uploads/c6340ee8-1b05-4d88-b834-224eb1b4e773.png"
               alt="Developer Illustration"
               className="relative z-10 w-3/4 md:w-full mx-auto h-auto"
             />

@@ -10,7 +10,7 @@ const Hero = () => {
           <div className="md:w-1/2 relative w-full h-[400px] md:h-[600px]">
             <div className="absolute top-0 right-0 w-full h-full bg-primary/20 rounded-full blur-3xl"></div>
             <img
-              src="/lovable-uploads/04199b5d-364a-4537-8296-4f0863d62992.png"
+              src="/uploads/04199b5d-364a-4537-8296-4f0863d62992.png"
               alt="Profile"
               className="relative z-10 w-full h-full object-cover rounded-2xl"
             />
