@@ -290,10 +290,17 @@ const websitesData: Website[] = [
     category: "E-commerce"
   },
   {
-    title: "Rove x Maria Sharapova",
+    title: "Rove x Maria Sharapova (US)",
     url: "https://rovexmaria.com/",
-    description: "Maria Sharapova Collections x Rove Concepts - luxury furniture and home decor collaboration",
-    image: "/uploads/4a147561-fb9a-4a8b-b044-c64b76643ad3.png",
+    description: "Maria Sharapova Collections x Rove Concepts US - luxury furniture and home decor collaboration",
+    image: "/uploads/6e5af514-bfe5-402e-bbcd-be2e106e9e83.png",
+    category: "E-commerce"
+  },
+  {
+    title: "Rove x Maria Sharapova (CA)",
+    url: "https://rovexmaria.ca/pages/shop-the-look",
+    description: "Maria Sharapova Collections x Rove Concepts Canada - luxury furniture and home decor collections",
+    image: "/uploads/bb5e139f-3b76-4589-a6e4-a63c84e1813d.png",
     category: "E-commerce"
   }
 ];
