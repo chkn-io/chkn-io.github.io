@@ -288,6 +288,13 @@ const websitesData: Website[] = [
     description: "Premium tea blend bundle designed to reduce inflammation and promote natural healing",
     image: "/uploads/88caba27-46c4-44ed-98d4-5a121a7dd970.png",
     category: "E-commerce"
+  },
+  {
+    title: "Rove x Maria Sharapova",
+    url: "https://rovexmaria.com/",
+    description: "Maria Sharapova Collections x Rove Concepts - luxury furniture and home decor collaboration",
+    image: "/uploads/4a147561-fb9a-4a8b-b044-c64b76643ad3.png",
+    category: "E-commerce"
   }
 ];
 
