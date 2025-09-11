@@ -302,6 +302,13 @@ const websitesData: Website[] = [
     description: "Maria Sharapova Collections x Rove Concepts Canada - luxury furniture and home decor collections",
     image: "/uploads/bb5e139f-3b76-4589-a6e4-a63c84e1813d.png",
     category: "E-commerce"
+  },
+  {
+    title: "Rove Concepts US",
+    url: "https://us.roveconcepts.com/",
+    description: "Premium modern furniture and home decor with innovative design solutions",
+    image: "/lovable-uploads/8a1104d9-6acc-4125-b477-726b0958372a.png",
+    category: "E-commerce"
   }
 ];
 
