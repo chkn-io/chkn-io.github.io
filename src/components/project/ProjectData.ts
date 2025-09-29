@@ -68,6 +68,12 @@ const projectsData: Project[] = [
     description: "A document management system for Southern Luzon State University to track and monitor document flow across departments.",
     image: "/uploads/d28b4119-b8d4-4abe-9324-2270e4853717.png",
     skills: ["PHP", "Laravel", "MySQL", "JavaScript", "HTML5", "CSS", "XAMPP"]
+  },
+  {
+    title: "RoveConcepts Voucher System",
+    description: "A system that manages the vouchers for RoveConcepts-US Store.",
+    image: "/uploads/rove-voucher-system.png",
+    skills: ["Laravel", "ReactJS", "Inertia", "MySQL", "Vite"]
   }
 ];
 
