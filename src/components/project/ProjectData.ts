@@ -309,6 +309,13 @@ const websitesData: Website[] = [
     description: "Premium modern furniture and home decor with innovative design solutions",
     image: "/lovable-uploads/8a1104d9-6acc-4125-b477-726b0958372a.png",
     category: "E-commerce"
+  },
+  {
+    title: "Fairliar USA Website",
+    url: "https://fairliarusa.com/",
+    description: "Premium fashion e-commerce platform featuring Fall 2025 Collection with up to 40% off",
+    image: "/uploads/fairliar-usa.png",
+    category: "E-commerce"
   }
 ];
 
