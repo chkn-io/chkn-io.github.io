@@ -1,11 +1,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import ProjectsSection from "./project/ProjectsSection";
-import WebsitesSection from "./project/WebsitesSection";
-import WebDesignsSection from "./project/WebDesignsSection";
-import AnalyticsSection from "./project/AnalyticsSection";
-import { projects, websites, webDesigns, analytics } from "./project/ProjectData";
+import PortfolioGallery from "./project/PortfolioGallery";
 
 const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -46,8 +42,8 @@ const Projects = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
-            Featured{" "}
-            <span className="gradient-text">Work</span>
+            All{" "}
+            <span className="gradient-text">My Work</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -56,15 +52,12 @@ const Projects = () => {
             viewport={{ once: true }}
             className="text-gray-400 max-w-xl mx-auto"
           >
-            A selection of projects spanning web apps, e-commerce stores, UI designs, and data dashboards.
+            Web apps, e-commerce stores, WordPress sites, UI designs and data dashboards — all in one place.
           </motion.p>
           <div className="section-line mx-auto mt-6" />
         </motion.div>
 
-        <ProjectsSection projects={projects} />
-        <WebsitesSection websites={websites} />
-        <WebDesignsSection webDesigns={webDesigns} />
-        <AnalyticsSection analytics={analytics} />
+        <PortfolioGallery />
       </div>
     </section>
   );
