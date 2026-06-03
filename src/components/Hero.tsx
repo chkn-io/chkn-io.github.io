@@ -24,33 +24,26 @@ const Hero = () => {
       {/* ── Layer 1: Background gradient mesh ── */}
       <motion.div style={{ y: bg1Y }} className="absolute inset-0 scale-110 pointer-events-none">
         {/* Primary emerald orb */}
-        <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-emerald-500/15 rounded-full blur-[120px] animate-glow-pulse" />
-        {/* Cyan secondary orb */}
-        <div className="absolute bottom-[15%] right-[15%] w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] animate-glow-pulse-delay" />
-        {/* Deep blue accent */}
-        <div className="absolute top-[40%] right-[35%] w-[250px] h-[250px] bg-blue-600/8 rounded-full blur-[80px]" />
+        <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-emerald-500/8 rounded-full blur-[120px] animate-glow-pulse" />
         {/* Grid pattern overlay */}
-        <div className="absolute inset-0 grid-pattern opacity-60" />
+        <div className="absolute inset-0 grid-pattern opacity-40" />
       </motion.div>
 
       {/* ── Layer 2: Mid-ground floating shapes ── */}
       <motion.div style={{ y: bg2Y }} className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Rotating ring top-right */}
-        <div className="absolute top-20 right-16 w-40 h-40 border border-emerald-500/20 rounded-full animate-rotate-slow" />
-        <div className="absolute top-20 right-16 w-32 h-32 border border-emerald-500/10 rounded-full animate-rotate-reverse translate-x-4 translate-y-4" />
+        <div className="absolute top-20 right-16 w-40 h-40 border border-white/8 rounded-full animate-rotate-slow" />
+        <div className="absolute top-20 right-16 w-32 h-32 border border-white/5 rounded-full animate-rotate-reverse translate-x-4 translate-y-4" />
         {/* Floating hexagon left */}
-        <div className="absolute top-[30%] left-8 w-16 h-16 border-2 border-emerald-500/25 rotate-45 animate-float" />
+        <div className="absolute top-[30%] left-8 w-16 h-16 border-2 border-white/10 rotate-45 animate-float" />
         {/* Dots grid bottom-left */}
         <div className="absolute bottom-[20%] left-16 grid grid-cols-4 gap-3">
           {Array.from({ length: 16 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-emerald-500/30" />
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/15" />
           ))}
         </div>
-        {/* Small floating orb mid */}
-        <div className="absolute top-[50%] right-[10%] w-8 h-8 rounded-full bg-emerald-400/20 blur-[4px] animate-float-delay-1" />
-        <div className="absolute top-[25%] left-[45%] w-4 h-4 rounded-full bg-cyan-400/30 blur-[2px] animate-float-delay-2" />
         {/* Diagonal line accent */}
-        <div className="absolute top-0 right-[30%] w-[1px] h-[200px] bg-gradient-to-b from-transparent via-emerald-500/30 to-transparent" />
+        <div className="absolute top-0 right-[30%] w-[1px] h-[200px] bg-gradient-to-b from-transparent via-white/12 to-transparent" />
       </motion.div>
 
       {/* ── Layer 3: Foreground content ── */}
@@ -153,7 +146,7 @@ const Hero = () => {
                   { value: "20+", label: "Happy Clients" },
                 ].map((stat) => (
                   <div key={stat.label}>
-                    <p className="text-2xl font-bold text-emerald-400">{stat.value}</p>
+                    <p className="text-2xl font-bold text-white">{stat.value}</p>
                     <p className="text-gray-500 text-sm">{stat.label}</p>
                   </div>
                 ))}
@@ -170,15 +163,15 @@ const Hero = () => {
                 className="relative"
               >
                 {/* Outer glow ring */}
-                <div className="absolute inset-[-20px] rounded-full border border-emerald-500/15 animate-rotate-slow" />
-                <div className="absolute inset-[-40px] rounded-full border border-emerald-500/8 animate-rotate-reverse" />
+                <div className="absolute inset-[-20px] rounded-full border border-white/8 animate-rotate-slow" />
+                <div className="absolute inset-[-40px] rounded-full border border-white/4 animate-rotate-reverse" />
 
                 {/* Image container */}
                 <div className="relative w-[280px] h-[280px] md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px]">
                   {/* Background glow */}
-                  <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-[60px] animate-glow-pulse" />
+                  <div className="absolute inset-0 bg-white/3 rounded-full blur-[60px]" />
                   {/* Profile image */}
-                  <div className="relative z-10 w-full h-full rounded-2xl overflow-hidden border border-emerald-500/20 shadow-2xl shadow-emerald-500/10">
+                  <div className="relative z-10 w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
                     <img
                       src="/uploads/04199b5d-364a-4537-8296-4f0863d62992.png"
                       alt="Percian Borja - Full Stack Developer"
@@ -195,7 +188,7 @@ const Hero = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.1 }}
                   >
-                    <p className="text-emerald-400 font-bold text-lg">5+</p>
+                    <p className="text-white font-bold text-lg">5+</p>
                     <p className="text-gray-400 text-xs">Years Exp.</p>
                   </motion.div>
 
@@ -206,7 +199,7 @@ const Hero = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.25 }}
                   >
-                    <p className="text-emerald-400 font-bold text-lg">50+</p>
+                    <p className="text-white font-bold text-lg">50+</p>
                     <p className="text-gray-400 text-xs">Projects</p>
                   </motion.div>
                 </div>
@@ -227,7 +220,7 @@ const Hero = () => {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ArrowDown size={16} className="text-emerald-500" />
+          <ArrowDown size={16} className="text-white/40" />
         </motion.div>
       </motion.div>
     </section>

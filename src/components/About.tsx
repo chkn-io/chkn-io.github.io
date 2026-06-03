@@ -2,38 +2,38 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const skills = [
-  { name: "Shopify Plus / Liquid", level: 100, color: "from-green-400 to-emerald-300", accent: "text-green-400" },
-  { name: "PHP / Laravel", level: 100, color: "from-emerald-500 to-cyan-400", accent: "text-emerald-400" },
-  { name: "React / JavaScript", level: 100, color: "from-cyan-400 to-blue-400", accent: "text-cyan-400" },
-  { name: "WordPress", level: 100, color: "from-blue-400 to-indigo-400", accent: "text-blue-400" },
-  { name: "PowerBI / Analytics", level: 100, color: "from-emerald-500 to-teal-400", accent: "text-emerald-400" },
-  { name: "MySQL / REST APIs", level: 100, color: "from-teal-400 to-emerald-300", accent: "text-teal-400" },
+  { name: "Shopify Plus / Liquid", level: 100, color: "from-emerald-500 to-emerald-400", accent: "text-emerald-400" },
+  { name: "PHP / Laravel", level: 100, color: "from-emerald-500 to-emerald-400", accent: "text-emerald-400" },
+  { name: "React / JavaScript", level: 100, color: "from-emerald-500 to-emerald-400", accent: "text-emerald-400" },
+  { name: "WordPress", level: 100, color: "from-emerald-500 to-emerald-400", accent: "text-emerald-400" },
+  { name: "PowerBI / Analytics", level: 100, color: "from-emerald-500 to-emerald-400", accent: "text-emerald-400" },
+  { name: "MySQL / REST APIs", level: 100, color: "from-emerald-500 to-emerald-400", accent: "text-emerald-400" },
 ];
 
 const row1 = [
-  { label: "Shopify Plus", color: "border-green-500/40 text-green-400 bg-green-500/8" },
-  { label: "PHP", color: "border-emerald-500/40 text-emerald-400 bg-emerald-500/8" },
-  { label: "Laravel", color: "border-emerald-500/40 text-emerald-400 bg-emerald-500/8" },
-  { label: "React", color: "border-cyan-500/40 text-cyan-400 bg-cyan-500/8" },
-  { label: "JavaScript", color: "border-yellow-500/40 text-yellow-400 bg-yellow-500/8" },
-  { label: "TypeScript", color: "border-blue-500/40 text-blue-400 bg-blue-500/8" },
-  { label: "WordPress", color: "border-blue-400/40 text-blue-300 bg-blue-500/8" },
-  { label: "Liquid", color: "border-green-400/40 text-green-300 bg-green-500/8" },
-  { label: "MySQL", color: "border-orange-400/40 text-orange-400 bg-orange-500/8" },
-  { label: "GraphQL", color: "border-pink-500/40 text-pink-400 bg-pink-500/8" },
+  { label: "Shopify Plus", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "PHP", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "Laravel", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "React", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "JavaScript", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "TypeScript", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "WordPress", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "Liquid", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "MySQL", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "GraphQL", color: "border-white/12 text-white/55 bg-white/4" },
 ];
 
 const row2 = [
-  { label: "PowerBI", color: "border-yellow-500/40 text-yellow-400 bg-yellow-500/8" },
-  { label: "LookerStudio", color: "border-blue-500/40 text-blue-400 bg-blue-500/8" },
-  { label: "REST API", color: "border-teal-500/40 text-teal-400 bg-teal-500/8" },
-  { label: "AJAX", color: "border-purple-500/40 text-purple-400 bg-purple-500/8" },
-  { label: "jQuery", color: "border-cyan-500/40 text-cyan-400 bg-cyan-500/8" },
-  { label: "HTML5", color: "border-orange-500/40 text-orange-400 bg-orange-500/8" },
-  { label: "CSS3", color: "border-blue-400/40 text-blue-300 bg-blue-500/8" },
-  { label: "Git", color: "border-red-400/40 text-red-400 bg-red-500/8" },
-  { label: "Excel", color: "border-green-500/40 text-green-400 bg-green-500/8" },
-  { label: "SCRUM / Agile", color: "border-indigo-500/40 text-indigo-400 bg-indigo-500/8" },
+  { label: "PowerBI", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "LookerStudio", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "REST API", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "AJAX", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "jQuery", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "HTML5", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "CSS3", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "Git", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "Excel", color: "border-white/12 text-white/55 bg-white/4" },
+  { label: "SCRUM / Agile", color: "border-white/12 text-white/55 bg-white/4" },
 ];
 
 const SkillBar = ({ name, level, color, accent, delay }: { name: string; level: number; color: string; accent: string; delay: number }) => (
@@ -83,9 +83,8 @@ const About = () => {
     <section id="about" ref={sectionRef} className="relative py-28 overflow-hidden bg-[#0D1117]">
       {/* Parallax background layer */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[20%] right-[10%] w-[350px] h-[350px] bg-emerald-500/8 rounded-full blur-[100px] animate-glow-pulse" />
-        <div className="absolute bottom-[10%] left-[5%] w-[280px] h-[280px] bg-cyan-500/6 rounded-full blur-[80px] animate-glow-pulse-delay" />
-        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute top-[20%] right-[10%] w-[350px] h-[350px] bg-emerald-500/5 rounded-full blur-[100px] animate-glow-pulse" />
+        <div className="absolute inset-0 grid-pattern opacity-20" />
       </motion.div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -126,11 +125,11 @@ const About = () => {
           >
             <div className="relative w-full max-w-md">
               {/* Decorative frame */}
-              <div className="absolute inset-[-12px] rounded-2xl border border-emerald-500/15 rotate-3" />
-              <div className="absolute inset-[-6px] rounded-2xl border border-emerald-500/10 -rotate-2" />
+              <div className="absolute inset-[-12px] rounded-2xl border border-white/8 rotate-3" />
+              <div className="absolute inset-[-6px] rounded-2xl border border-white/5 -rotate-2" />
               {/* Glow */}
-              <div className="absolute inset-0 bg-emerald-500/10 rounded-2xl blur-[40px]" />
-              <div className="relative z-10 rounded-2xl overflow-hidden border border-emerald-500/20 shadow-2xl">
+              <div className="absolute inset-0 bg-white/3 rounded-2xl blur-[40px]" />
+              <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <img
                   src="/uploads/c6340ee8-1b05-4d88-b834-224eb1b4e773.png"
                   alt="Developer Illustration"

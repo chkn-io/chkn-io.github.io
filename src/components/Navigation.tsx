@@ -29,7 +29,7 @@ const Navigation = () => {
     <>
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 h-[3px] z-[60] bg-gradient-to-r from-emerald-500 to-cyan-400"
+        className="fixed top-0 left-0 h-[3px] z-[60] bg-emerald-500"
         style={{ width: progressWidth }}
       />
 
@@ -69,7 +69,7 @@ const Navigation = () => {
                   }`}
                 >
                   {item.name}
-                  <span className={`absolute bottom-1 left-4 right-4 h-[2px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 transition-all duration-300 origin-left ${
+                  <span className={`absolute bottom-1 left-4 right-4 h-[2px] rounded-full bg-emerald-500 transition-all duration-300 origin-left ${
                     activeSection === item.to ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-60"
                   }`} />
                 </Link>
@@ -87,7 +87,7 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-gray-400 hover:text-emerald-400 transition-colors p-2"
+              className="md:hidden text-gray-400 hover:text-white transition-colors p-2"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -114,7 +114,7 @@ const Navigation = () => {
               animate={{ opacity: 1, height: "auto", y: 0 }}
               exit={{ opacity: 0, height: 0, y: -10 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden bg-[#0D1117]/95 backdrop-blur-xl border-t border-emerald-500/10"
+              className="md:hidden bg-[#0D1117]/95 backdrop-blur-xl border-t border-white/8"
             >
               <div className="container mx-auto px-6 py-4">
                 <div className="flex flex-col gap-1">
@@ -131,7 +131,7 @@ const Navigation = () => {
                         smooth={true}
                         offset={-80}
                         duration={600}
-                        className="block text-gray-300 cursor-pointer hover:text-emerald-400 transition-colors py-3 px-2 border-b border-gray-800/50 last:border-0"
+                        className="block text-gray-300 cursor-pointer hover:text-white transition-colors py-3 px-2 border-b border-gray-800/50 last:border-0"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.name}

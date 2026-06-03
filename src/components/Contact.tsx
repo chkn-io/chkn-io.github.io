@@ -91,9 +91,8 @@ const Contact = () => {
     <section id="contact" ref={sectionRef} className="relative py-28 overflow-hidden bg-[#0A0F16]">
       {/* Parallax background */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none scale-110">
-        <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-emerald-500/8 rounded-full blur-[140px] animate-glow-pulse" />
-        <div className="absolute bottom-[5%] right-[15%] w-[350px] h-[350px] bg-cyan-500/6 rounded-full blur-[100px] animate-glow-pulse-delay" />
-        <div className="absolute inset-0 grid-pattern opacity-20" />
+        <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[140px] animate-glow-pulse" />
+        <div className="absolute inset-0 grid-pattern opacity-15" />
       </motion.div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -162,7 +161,7 @@ const Contact = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white/3 hover:bg-emerald-500/10 border border-white/5 hover:border-emerald-500/30 text-gray-400 hover:text-emerald-400 transition-all duration-300 text-sm"
+                    className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white/3 hover:bg-white/6 border border-white/6 hover:border-white/12 text-gray-400 hover:text-white transition-all duration-300 text-sm"
                   >
                     <span>{link.icon}</span>
                     <span>{link.name}</span>
@@ -246,7 +245,7 @@ const Contact = () => {
                   disabled={submitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full inline-flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-semibold rounded-xl transition-all duration-300 btn-shine hover:shadow-lg hover:shadow-emerald-500/25 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full inline-flex items-center justify-center gap-2 py-4 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-xl transition-all duration-300 btn-shine hover:shadow-lg hover:shadow-emerald-500/20 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send size={18} />
                   {submitting ? "Sending..." : "Send Message"}

@@ -135,20 +135,20 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .glass-card {
-  background: rgba(31, 41, 55, 0.6);
+  background: rgba(20, 27, 38, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 /* ===== Gradient Text ===== */
 .gradient-text {
-  background: linear-gradient(135deg, #10B981, #06b6d4, #10B981);
+  background: linear-gradient(135deg, #10B981, #6ee7b7, #10B981);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-x 4s ease infinite;
+  animation: gradient-x 6s ease infinite;
 }
 .gradient-text-white {
   background: linear-gradient(135deg, #ffffff, #d1fae5, #ffffff);
@@ -186,7 +186,7 @@ html {
 /* ===== Progress bar ===== */
 .progress-bar {
   height: 3px;
-  background: linear-gradient(90deg, #10B981, #06b6d4);
+  background: #10B981;
   transform-origin: left;
 }
 
@@ -211,7 +211,7 @@ html {
 }
 .card-hover:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15), 0 0 0 1px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 /* ===== Button shine effect ===== */
@@ -238,7 +238,7 @@ html {
 .section-line {
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #10B981, #06b6d4);
+  background: #10B981;
   border-radius: 2px;
 }
 

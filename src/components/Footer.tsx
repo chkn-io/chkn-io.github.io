@@ -24,7 +24,7 @@ const Footer = () => {
   return (
     <footer className="relative bg-[#070B10] border-t border-gray-800/40 pt-14 pb-8">
       {/* Subtle top gradient */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
@@ -50,7 +50,7 @@ const Footer = () => {
                     smooth
                     offset={-80}
                     duration={600}
-                    className="text-gray-500 hover:text-emerald-400 text-sm cursor-pointer transition-colors"
+                    className="text-gray-500 hover:text-white text-sm cursor-pointer transition-colors"
                   >
                     {link.name}
                   </ScrollLink>
@@ -69,7 +69,7 @@ const Footer = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-emerald-400 text-sm transition-colors"
+                    className="text-gray-500 hover:text-white text-sm transition-colors"
                   >
                     {link.name}
                   </a>
@@ -78,7 +78,7 @@ const Footer = () => {
               <li>
                 <a
                   href="mailto:percian0296@gmail.com"
-                  className="text-gray-500 hover:text-emerald-400 text-sm transition-colors"
+                  className="text-gray-500 hover:text-white text-sm transition-colors"
                 >
                   percian0296@gmail.com
                 </a>
