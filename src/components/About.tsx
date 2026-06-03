@@ -2,40 +2,73 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const skills = [
-  { name: "PHP / Laravel", level: 92, color: "from-emerald-500 to-cyan-400" },
-  { name: "WordPress", level: 90, color: "from-emerald-500 to-cyan-400" },
-  { name: "Shopify / Liquid", level: 88, color: "from-emerald-400 to-teal-400" },
-  { name: "JavaScript / React", level: 85, color: "from-cyan-500 to-blue-400" },
-  { name: "PowerBI / Analytics", level: 88, color: "from-emerald-500 to-cyan-400" },
-  { name: "MySQL / APIs", level: 86, color: "from-teal-500 to-emerald-400" },
+  { name: "Shopify Plus / Liquid", level: 100, color: "from-green-400 to-emerald-300", accent: "text-green-400" },
+  { name: "PHP / Laravel", level: 100, color: "from-emerald-500 to-cyan-400", accent: "text-emerald-400" },
+  { name: "React / JavaScript", level: 100, color: "from-cyan-400 to-blue-400", accent: "text-cyan-400" },
+  { name: "WordPress", level: 100, color: "from-blue-400 to-indigo-400", accent: "text-blue-400" },
+  { name: "PowerBI / Analytics", level: 100, color: "from-emerald-500 to-teal-400", accent: "text-emerald-400" },
+  { name: "MySQL / REST APIs", level: 100, color: "from-teal-400 to-emerald-300", accent: "text-teal-400" },
 ];
 
-const techStack = [
-  "PHP", "Laravel", "WordPress", "Shopify", "JavaScript", "React",
-  "MySQL", "PowerBI", "Excel", "LookerStudio", "GraphQL", "AJAX",
-  "jQuery", "HTML5", "CSS3", "REST API", "SCRUM", "Git",
+const row1 = [
+  { label: "Shopify Plus", color: "border-green-500/40 text-green-400 bg-green-500/8" },
+  { label: "PHP", color: "border-emerald-500/40 text-emerald-400 bg-emerald-500/8" },
+  { label: "Laravel", color: "border-emerald-500/40 text-emerald-400 bg-emerald-500/8" },
+  { label: "React", color: "border-cyan-500/40 text-cyan-400 bg-cyan-500/8" },
+  { label: "JavaScript", color: "border-yellow-500/40 text-yellow-400 bg-yellow-500/8" },
+  { label: "TypeScript", color: "border-blue-500/40 text-blue-400 bg-blue-500/8" },
+  { label: "WordPress", color: "border-blue-400/40 text-blue-300 bg-blue-500/8" },
+  { label: "Liquid", color: "border-green-400/40 text-green-300 bg-green-500/8" },
+  { label: "MySQL", color: "border-orange-400/40 text-orange-400 bg-orange-500/8" },
+  { label: "GraphQL", color: "border-pink-500/40 text-pink-400 bg-pink-500/8" },
 ];
 
-const SkillBar = ({ name, level, color, delay }: { name: string; level: number; color: string; delay: number }) => (
+const row2 = [
+  { label: "PowerBI", color: "border-yellow-500/40 text-yellow-400 bg-yellow-500/8" },
+  { label: "LookerStudio", color: "border-blue-500/40 text-blue-400 bg-blue-500/8" },
+  { label: "REST API", color: "border-teal-500/40 text-teal-400 bg-teal-500/8" },
+  { label: "AJAX", color: "border-purple-500/40 text-purple-400 bg-purple-500/8" },
+  { label: "jQuery", color: "border-cyan-500/40 text-cyan-400 bg-cyan-500/8" },
+  { label: "HTML5", color: "border-orange-500/40 text-orange-400 bg-orange-500/8" },
+  { label: "CSS3", color: "border-blue-400/40 text-blue-300 bg-blue-500/8" },
+  { label: "Git", color: "border-red-400/40 text-red-400 bg-red-500/8" },
+  { label: "Excel", color: "border-green-500/40 text-green-400 bg-green-500/8" },
+  { label: "SCRUM / Agile", color: "border-indigo-500/40 text-indigo-400 bg-indigo-500/8" },
+];
+
+const SkillBar = ({ name, level, color, accent, delay }: { name: string; level: number; color: string; accent: string; delay: number }) => (
   <motion.div
-    initial={{ opacity: 0, x: -30 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.6, delay }}
+    initial={{ opacity: 0, x: -50, rotateX: 15 }}
+    whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
+    transition={{ duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     viewport={{ once: true }}
     className="group"
   >
-    <div className="flex justify-between items-center mb-2">
-      <span className="text-gray-300 text-sm font-medium">{name}</span>
-      <span className="text-emerald-400 text-sm font-bold">{level}%</span>
+    <div className="flex justify-between items-center mb-3">
+      <span className="text-gray-200 text-sm font-semibold tracking-wide">{name}</span>
+      <motion.span
+        className={`text-sm font-black ${accent}`}
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: delay + 0.6, type: "spring", stiffness: 300 }}
+        viewport={{ once: true }}
+      >
+        {level}%
+      </motion.span>
     </div>
-    <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+    <div className="h-2.5 bg-gray-800/80 rounded-full overflow-hidden relative">
+      {/* Track shimmer */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/3 to-transparent animate-shimmer rounded-full" />
       <motion.div
-        className={`h-full rounded-full bg-gradient-to-r ${color}`}
+        className={`h-full rounded-full bg-gradient-to-r ${color} relative overflow-hidden`}
         initial={{ width: 0 }}
         whileInView={{ width: `${level}%` }}
-        transition={{ duration: 1.2, delay: delay + 0.2, ease: "easeOut" }}
+        transition={{ duration: 1.5, delay: delay + 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
         viewport={{ once: true }}
-      />
+      >
+        {/* Shimmer on fill */}
+        <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+      </motion.div>
     </div>
   </motion.div>
 );
@@ -58,15 +91,21 @@ const About = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section label */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-emerald-400 text-sm font-medium border border-emerald-500/25 bg-emerald-500/5 mb-5">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 rounded-full text-emerald-400 text-sm font-medium border border-emerald-500/25 bg-emerald-500/5 mb-5"
+          >
             About Me
-          </span>
+          </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Crafting Digital{" "}
             <span className="gradient-text">Experiences</span>
@@ -150,29 +189,47 @@ const About = () => {
           </div>
         </div>
 
-        {/* Tech stack tags */}
+        {/* Tech stack marquee */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="relative"
         >
-          <p className="text-gray-500 text-sm uppercase tracking-widest mb-6">Tech Stack</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {techStack.map((tech, i) => (
-              <motion.span
-                key={tech}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.1, borderColor: "rgba(16,185,129,0.6)" }}
-                className="px-4 py-2 rounded-full text-sm text-gray-300 border border-gray-700/60 bg-gray-900/40 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all duration-200 cursor-default"
-              >
-                {tech}
-              </motion.span>
-            ))}
+          <p className="text-gray-500 text-xs uppercase tracking-[0.25em] mb-8 text-center font-semibold">Tech Stack</p>
+
+          {/* Row 1 — scrolls left */}
+          <div className="relative overflow-hidden marquee-container mb-4">
+            {/* Edge fades */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0D1117] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0D1117] to-transparent z-10 pointer-events-none" />
+            <div className="flex gap-3 animate-marquee whitespace-nowrap w-max">
+              {[...row1, ...row1].map((tech, i) => (
+                <span
+                  key={i}
+                  className={`inline-flex items-center px-4 py-2 rounded-full text-xs font-bold border ${tech.color} shrink-0 hover:scale-110 transition-transform duration-200 cursor-default`}
+                >
+                  {tech.label}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2 — scrolls right */}
+          <div className="relative overflow-hidden marquee-container">
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0D1117] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0D1117] to-transparent z-10 pointer-events-none" />
+            <div className="flex gap-3 animate-marquee-reverse whitespace-nowrap w-max">
+              {[...row2, ...row2].map((tech, i) => (
+                <span
+                  key={i}
+                  className={`inline-flex items-center px-4 py-2 rounded-full text-xs font-bold border ${tech.color} shrink-0 hover:scale-110 transition-transform duration-200 cursor-default`}
+                >
+                  {tech.label}
+                </span>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

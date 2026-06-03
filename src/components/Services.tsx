@@ -75,12 +75,12 @@ const ServiceCard = ({
   const Icon = service.icon;
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      whileHover={{ y: -8, transition: { duration: 0.25 } }}
-      className={`group relative rounded-2xl p-6 border ${service.border} bg-gradient-to-br ${service.color} backdrop-blur-sm cursor-default transition-all duration-300 overflow-hidden`}
+      initial={{ opacity: 0, y: 60, rotateX: 8 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+      viewport={{ once: true, margin: "-40px" }}
+      whileHover={{ y: -12, scale: 1.02, transition: { duration: 0.3, ease: "easeOut" } }}
+      className={`group relative rounded-2xl p-6 border ${service.border} bg-gradient-to-br ${service.color} backdrop-blur-sm cursor-default transition-all duration-300 overflow-hidden hover:shadow-2xl`}
     >
       {/* Hover glow */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/3 to-transparent rounded-2xl" />
@@ -131,23 +131,35 @@ const Services = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-emerald-400 text-sm font-medium border border-emerald-500/25 bg-emerald-500/5 mb-5">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1, type: "spring", stiffness: 200 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 rounded-full text-emerald-400 text-sm font-medium border border-emerald-500/25 bg-emerald-500/5 mb-5"
+          >
             What I Offer
-          </span>
+          </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Services &amp;{" "}
             <span className="gradient-text">Expertise</span>
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            viewport={{ once: true }}
+            className="text-gray-400 max-w-xl mx-auto"
+          >
             End-to-end digital solutions — from pixel-perfect front-ends to robust back-ends
             and data-driven insights.
-          </p>
+          </motion.p>
           <div className="section-line mx-auto mt-6" />
         </motion.div>
 

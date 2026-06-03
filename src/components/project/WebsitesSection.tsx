@@ -55,23 +55,18 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
       <SectionTitle title="Websites" className="mt-20" />
       
       <Tabs defaultValue={categories[0]} className="w-full">
-        {/* Custom Pills Navigation */}
-        <TabsList className="flex flex-wrap justify-center gap-3 mb-12 p-6 bg-gradient-to-r from-muted/30 via-muted/50 to-muted/30 rounded-2xl backdrop-blur-sm h-auto">
+        {/* Category Pills */}
+        <TabsList className="flex flex-wrap justify-center gap-2 mb-10 p-4 bg-gray-900/50 rounded-2xl border border-gray-700/30 h-auto backdrop-blur-sm">
           {categories.map((category) => (
             <TabsTrigger 
               key={category} 
               value={category}
-              className="group relative px-6 py-4 rounded-full border-2 border-transparent bg-background/60 hover:bg-background transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary/20 data-[state=active]:shadow-lg data-[state=active]:shadow-primary/25 hover:scale-105 hover:shadow-md"
+              className="px-5 py-2.5 rounded-xl border border-transparent bg-transparent text-gray-400 hover:text-white hover:bg-gray-800/60 transition-all duration-300 data-[state=active]:bg-emerald-500 data-[state=active]:text-white data-[state=active]:border-emerald-400/30 data-[state=active]:shadow-lg data-[state=active]:shadow-emerald-500/30 font-semibold text-sm"
             >
-              <div className="flex items-center gap-2">
-                <span className="font-medium text-sm">{category}</span>
-                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 group-data-[state=active]:bg-primary-foreground/20 text-xs font-bold transition-colors">
-                  {websitesByCategory[category].length}
-                </div>
-              </div>
-              
-              {/* Animated glow effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-data-[state=active]:opacity-100 transition-opacity duration-300 -z-10 blur-xl"></div>
+              {category}
+              <span className="ml-2 text-xs opacity-70 data-[state=active]:opacity-90 bg-white/10 rounded-full px-1.5 py-0.5">
+                {websitesByCategory[category].length}
+              </span>
             </TabsTrigger>
           ))}
         </TabsList>
@@ -84,33 +79,25 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
           return (
             <TabsContent key={category} value={category} className="mt-0">
               {/* Category stats */}
-              <div className="text-center mb-8 p-4 bg-muted/30 rounded-xl border border-primary/10">
-                <h3 className="text-xl font-semibold text-foreground mb-1">
-                  {category} Portfolio
+              <div className="text-center mb-10 py-4 px-6 rounded-2xl border border-emerald-500/10 bg-emerald-500/3">
+                <h3 className="text-lg font-bold text-white mb-1">
+                  {category} <span className="text-emerald-400">Portfolio</span>
                 </h3>
-                <p className="text-sm text-muted-foreground">
-                  Showcasing {categoryWebsites.length} professional {categoryWebsites.length === 1 ? 'website' : 'websites'}
+                <p className="text-sm text-gray-500">
+                  {categoryWebsites.length} professional {categoryWebsites.length === 1 ? 'website' : 'websites'}
                 </p>
               </div>
 
-              {/* Websites Grid with stagger animation */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Websites Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {categoryWebsites
                   .slice(0, visibleCount)
                   .map((website, index) => (
-                    <div
+                    <WebsiteCard
                       key={`${category}-${index}`}
-                      className="animate-fade-in hover-scale"
-                      style={{
-                        animationDelay: `${index * 100}ms`,
-                        animationFillMode: 'both'
-                      }}
-                    >
-                      <WebsiteCard 
-                        website={website} 
-                        index={index} 
-                      />
-                    </div>
+                      website={website}
+                      index={index}
+                    />
                   ))}
               </div>
 
@@ -120,21 +107,12 @@ const WebsitesSection = ({ websites }: WebsitesSectionProps) => {
                     onClick={() => showMoreForCategory(category)}
                     variant="outline"
                     size="lg"
-                    className="group relative px-8 py-3 bg-gradient-to-r from-primary/5 to-accent/5 border-primary/30 hover:border-primary hover:from-primary/10 hover:to-accent/10 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                    className="group px-8 py-3 bg-emerald-500/5 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 text-emerald-400 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/20 rounded-xl font-semibold"
                   >
-                    <span className="mr-3 font-medium">Load More {category}</span>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs bg-primary/15 px-3 py-1 rounded-full font-semibold">
-                        +{categoryWebsites.length - visibleCount}
-                      </span>
-                    </div>
-                    
-                    {/* Animated arrow */}
-                    <div className="absolute right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                      </svg>
-                    </div>
+                    Load More
+                    <span className="ml-2 text-xs bg-emerald-500/20 px-2.5 py-0.5 rounded-full">
+                      +{categoryWebsites.length - visibleCount}
+                    </span>
                   </Button>
                 </div>
               )}

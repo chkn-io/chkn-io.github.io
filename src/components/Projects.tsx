@@ -24,22 +24,40 @@ const Projects = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-emerald-400 text-sm font-medium border border-emerald-500/25 bg-emerald-500/5 mb-5">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1, type: "spring", stiffness: 200 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 rounded-full text-emerald-400 text-sm font-medium border border-emerald-500/25 bg-emerald-500/5 mb-5"
+          >
             Portfolio
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
+          >
             Featured{" "}
             <span className="gradient-text">Work</span>
-          </h2>
-          <p className="text-gray-400 max-w-xl mx-auto">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            viewport={{ once: true }}
+            className="text-gray-400 max-w-xl mx-auto"
+          >
             A selection of projects spanning web apps, e-commerce stores, UI designs, and data dashboards.
-          </p>
+          </motion.p>
           <div className="section-line mx-auto mt-6" />
         </motion.div>
 

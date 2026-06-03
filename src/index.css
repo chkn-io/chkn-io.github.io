@@ -66,6 +66,45 @@
   to { transform: translateY(0); opacity: 1; }
 }
 
+/* ===== Marquee ===== */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+@keyframes tilt-in {
+  from { transform: perspective(800px) rotateX(20deg) translateY(40px); opacity: 0; }
+  to { transform: perspective(800px) rotateX(0deg) translateY(0); opacity: 1; }
+}
+@keyframes zoom-in-fade {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes flip-in {
+  from { transform: perspective(600px) rotateY(-30deg) translateX(-40px); opacity: 0; }
+  to { transform: perspective(600px) rotateY(0deg) translateX(0); opacity: 1; }
+}
+@keyframes blur-in {
+  from { filter: blur(12px); opacity: 0; transform: scale(1.05); }
+  to { filter: blur(0px); opacity: 1; transform: scale(1); }
+}
+
+.animate-marquee { animation: marquee 30s linear infinite; }
+.animate-marquee-slow { animation: marquee 45s linear infinite; }
+.animate-marquee-reverse { animation: marquee-reverse 35s linear infinite; }
+.animate-tilt-in { animation: tilt-in 0.8s ease-out forwards; }
+.animate-zoom-in-fade { animation: zoom-in-fade 0.6s ease-out forwards; }
+.animate-flip-in { animation: flip-in 0.7s ease-out forwards; }
+.animate-blur-in { animation: blur-in 0.8s ease-out forwards; }
+
+/* pause marquee on hover */
+.marquee-container:hover .animate-marquee,
+.marquee-container:hover .animate-marquee-slow,
+.marquee-container:hover .animate-marquee-reverse { animation-play-state: paused; }
+
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
 .animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }

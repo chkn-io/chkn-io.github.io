@@ -67,15 +67,21 @@ const Process = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-emerald-400 text-sm font-medium border border-emerald-500/25 bg-emerald-500/5 mb-5">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1, type: "spring", stiffness: 200 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 rounded-full text-emerald-400 text-sm font-medium border border-emerald-500/25 bg-emerald-500/5 mb-5"
+          >
             How I Work
-          </span>
+          </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             My{" "}
             <span className="gradient-text">Process</span>
@@ -102,15 +108,16 @@ const Process = () => {
               return (
                 <motion.div
                   key={step.number}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.15 }}
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.7, delay: i * 0.15, type: "spring", stiffness: 100, damping: 15 }}
                   viewport={{ once: true }}
                   className="flex flex-col items-center text-center"
                 >
                   {/* Icon circle */}
                   <motion.div
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
                     className={`relative z-10 w-[52px] h-[52px] rounded-full ${step.bg} border-2 ${step.border} flex items-center justify-center mb-6 shadow-lg ${step.glow}`}
                   >
                     <Icon size={22} className={step.color} />
@@ -135,9 +142,9 @@ const Process = () => {
             return (
               <motion.div
                 key={step.number}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                initial={{ opacity: 0, x: -50, rotateY: -15 }}
+                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                transition={{ duration: 0.65, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
                 viewport={{ once: true }}
                 className={`glass-card rounded-2xl p-6 border ${step.border} relative overflow-hidden`}
               >

@@ -83,11 +83,12 @@ const Stats = () => {
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 60, scale: 0.85 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.7, delay: i * 0.12, type: "spring", stiffness: 120, damping: 15 }}
               viewport={{ once: true }}
-              className="group glass-card rounded-2xl p-6 text-center hover:border-emerald-500/30 transition-all duration-300 cursor-default"
+              whileHover={{ y: -10, scale: 1.04, transition: { duration: 0.3 } }}
+              className="group glass-card rounded-2xl p-6 text-center hover:border-emerald-500/40 transition-colors duration-300 cursor-default hover:shadow-xl hover:shadow-emerald-500/10"
             >
               <p className="text-4xl md:text-5xl font-black text-emerald-400 mb-2 animate-text-glow">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
@@ -100,15 +101,21 @@ const Stats = () => {
 
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-emerald-400 text-sm font-medium border border-emerald-500/25 bg-emerald-500/5 mb-5">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1, type: "spring", stiffness: 200 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 rounded-full text-emerald-400 text-sm font-medium border border-emerald-500/25 bg-emerald-500/5 mb-5"
+          >
             Testimonials
-          </span>
+          </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             What Clients{" "}
             <span className="gradient-text">Say</span>
@@ -121,11 +128,11 @@ const Stats = () => {
           {testimonials.map((testimonial, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
+              initial={{ opacity: 0, y: 60, rotateX: 10, scale: 0.93 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
-              whileHover={{ y: -6 }}
+              whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
               className="glass-card rounded-2xl p-7 relative group cursor-default"
             >
               {/* Quote mark */}
