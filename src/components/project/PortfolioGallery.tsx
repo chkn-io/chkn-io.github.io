@@ -29,7 +29,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     image: p.image,
     filter: "webapp",
     badge: "Web App",
-    badgeClass: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+    badgeClass: "bg-white/8 text-white/70 border-white/15",
     skills: p.skills,
   })),
 
@@ -43,7 +43,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       url: w.url,
       filter: "ecommerce",
       badge: "E-commerce",
-      badgeClass: "bg-green-500/15 text-green-400 border-green-500/30",
+      badgeClass: "bg-white/8 text-white/70 border-white/15",
     })),
 
   ...websites
@@ -55,8 +55,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
       image: w.image,
       url: w.url,
       filter: "website",
-      badge: w.category,
-      badgeClass: "bg-blue-500/15 text-blue-400 border-blue-500/30",
+      badge: "Website",
+      badgeClass: "bg-white/8 text-white/70 border-white/15",
     })),
 
   ...webDesigns.map((d, i): GalleryItem => ({
@@ -66,8 +66,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     image: d.image,
     url: d.url,
     filter: "design",
-    badge: "Figma",
-    badgeClass: "bg-purple-500/15 text-purple-400 border-purple-500/30",
+    badge: "UI Design",
+    badgeClass: "bg-white/8 text-white/70 border-white/15",
   })),
 
   ...analytics.map((a, i): GalleryItem => ({
@@ -78,7 +78,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     url: a.url,
     filter: "analytics",
     badge: "Analytics",
-    badgeClass: "bg-yellow-500/15 text-yellow-400 border-yellow-500/30",
+    badgeClass: "bg-white/8 text-white/70 border-white/15",
   })),
 ];
 
@@ -97,7 +97,7 @@ const FILTERS: { key: FilterKey; label: string; Icon: React.ElementType }[] = [
 
 const GalleryCard = ({ item, index }: { item: GalleryItem; index: number }) => {
   const inner = (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl border border-gray-700/30 group-hover:border-emerald-500/50 transition-colors duration-400">
+      <div className="relative w-full h-full overflow-hidden rounded-xl border border-white/6 group-hover:border-white/20 transition-colors duration-400">
       {/* Image */}
       <img
         src={item.image}
@@ -111,7 +111,7 @@ const GalleryCard = ({ item, index }: { item: GalleryItem; index: number }) => {
 
       {/* Badge — top left */}
       <div className="absolute top-3 left-3">
-        <span className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-bold border ${item.badgeClass} backdrop-blur-sm`}>
+        <span className={`inline-block px-2 py-0.5 rounded text-[9px] font-semibold tracking-widest uppercase border ${item.badgeClass} backdrop-blur-sm`}>
           {item.badge}
         </span>
       </div>
@@ -127,7 +127,7 @@ const GalleryCard = ({ item, index }: { item: GalleryItem; index: number }) => {
 
       {/* Title always visible at bottom */}
       <div className="absolute bottom-0 left-0 right-0 p-4">
-        <h3 className="text-white font-bold text-sm leading-tight line-clamp-2 group-hover:text-emerald-300 transition-colors duration-300">
+        <h3 className="text-white font-bold text-sm leading-tight line-clamp-2 group-hover:text-emerald-400 transition-colors duration-300">
           {item.title}
         </h3>
 
@@ -142,7 +142,7 @@ const GalleryCard = ({ item, index }: { item: GalleryItem; index: number }) => {
         {item.skills && (
           <div className="flex flex-wrap gap-1 mt-2 max-h-0 overflow-hidden group-hover:max-h-10 transition-all duration-500">
             {item.skills.slice(0, 3).map(s => (
-              <span key={s} className="px-1.5 py-0.5 text-[9px] font-semibold bg-emerald-500/20 text-emerald-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-400 delay-150">
+              <span key={s} className="px-1.5 py-0.5 text-[9px] font-semibold bg-white/10 text-white/60 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-400 delay-150">
                 {s}
               </span>
             ))}
@@ -201,16 +201,16 @@ const PortfolioGallery = () => {
           <button
             key={key}
             onClick={() => setActive(key)}
-            className={`relative flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
+            className={`relative flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
               active === key
-                ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 scale-105"
-                : "bg-gray-800/60 text-gray-400 hover:text-white hover:bg-gray-700/60 border border-gray-700/40"
+                ? "bg-white text-gray-900 shadow-md scale-105 font-semibold"
+                : "bg-gray-900/70 text-gray-500 hover:text-gray-200 hover:bg-gray-800/70 border border-gray-700/50"
             }`}
           >
-            <Icon className="w-4 h-4" />
+            <Icon className="w-3.5 h-3.5" />
             {label}
-            <span className={`text-xs rounded-full px-1.5 py-0.5 font-bold ${
-              active === key ? "bg-white/20 text-white" : "bg-gray-700 text-gray-400"
+            <span className={`text-[11px] rounded px-1.5 py-0.5 font-bold tabular-nums ${
+              active === key ? "bg-gray-200 text-gray-700" : "bg-gray-800 text-gray-500"
             }`}>
               {counts[key]}
             </span>

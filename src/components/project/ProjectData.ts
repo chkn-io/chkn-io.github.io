@@ -90,7 +90,7 @@ const websitesData: Website[] = [
     url: "https://stage4tuning.com/",
     description: "Automotive tuning software and services platform",
     image: "/uploads/36a51783-661c-44db-811e-10c7ebdf5bac.png",
-    category: "Automotive"
+    category: "E-commerce"
   },
   {
     title: "Exhali",
