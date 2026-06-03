@@ -79,6 +79,27 @@ const projectsData: Project[] = [
 
 const websitesData: Website[] = [
   {
+    title: "Rove Outlet",
+    url: "https://outlet.roveconcepts.ca/",
+    description: "Premium discontinued and limited-edition furniture at up to 80% off — exclusive Shopify channel for Rove Concepts Canada",
+    image: "/uploads/rove-outlet.png",
+    category: "E-commerce"
+  },
+  {
+    title: "Rove Kyoto",
+    url: "https://rovekyoto.com/",
+    description: "Minimalist event and workspace brand site for Rove's Kyoto concept — matcha open house and experiential pages",
+    image: "/uploads/rove-kyoto.png",
+    category: "E-commerce"
+  },
+  {
+    title: "Bali Body AU",
+    url: "https://au.balibodyco.com/",
+    description: "Australian storefront for Bali Body's self-tan and skincare line — high-converting Shopify e-commerce",
+    image: "/uploads/bali-body-au.png",
+    category: "E-commerce"
+  },
+  {
     title: "SkySoles US",
     url: "https://skysoles.com",
     description: "Aviation footwear with focus on innovation",
