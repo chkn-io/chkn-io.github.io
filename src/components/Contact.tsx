@@ -206,7 +206,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="John Doe"
-                      className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/8 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-emerald-500/50 focus:bg-emerald-500/3 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-emerald-500/50 focus:bg-emerald-500/5 transition-all duration-300"
                     />
                   </div>
                   <div>
@@ -221,7 +221,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="john@example.com"
-                      className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/8 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-emerald-500/50 focus:bg-emerald-500/3 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-emerald-500/50 focus:bg-emerald-500/5 transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -237,7 +237,7 @@ const Contact = () => {
                     required
                     rows={6}
                     placeholder="Tell me about your project..."
-                    className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/8 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-emerald-500/50 focus:bg-emerald-500/3 transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-emerald-500/50 focus:bg-emerald-500/5 transition-all duration-300 resize-none"
                   />
                 </div>
                 <motion.button

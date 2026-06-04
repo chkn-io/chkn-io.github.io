@@ -58,6 +58,8 @@ const WebsiteCard = ({ website, index }: WebsiteCardProps) => {
             <img
               src={website.image}
               alt={website.title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
             />
             {/* Hover overlay */}

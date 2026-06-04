@@ -34,7 +34,7 @@ const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) =
 };
 
 const stats: StatProps[] = [
-  { value: 5, suffix: "+", label: "Years of Experience", description: "Building web apps and data solutions since 2019" },
+  { value: 13, suffix: "+", label: "Years of Experience", description: "Building web apps and data solutions since 2013" },
   { value: 50, suffix: "+", label: "Projects Delivered", description: "From small MVPs to enterprise-grade systems" },
   { value: 20, suffix: "+", label: "Happy Clients", description: "Across the US, Philippines, and beyond" },
   { value: 100, suffix: "%", label: "Client Satisfaction", description: "Committed to quality and clear communication" },
@@ -42,14 +42,14 @@ const stats: StatProps[] = [
 
 const testimonials = [
   {
-    quote: "Percian delivered our Shopify store ahead of schedule. The attention to detail and technical depth was impressive — highly recommend!",
-    name: "Client — US E-commerce Brand",
+    quote: "Percian dependable, skilled, and easy to work with, and I’ve truly enjoyed having him on the team.",
+    name: "Luke — Grand Digital",
     role: "Shopify Development",
   },
   {
-    quote: "The PowerBI dashboards transformed how we view our data. Everything is exactly what we needed, built fast and clean.",
-    name: "Client — Healthcare Analytics",
-    role: "Data Analytics",
+    quote: "The trust and effort you bring to the work matter a lot. I value the way you show up for the team and all of us and take ownership of what you do. I’m glad we get to work together and build this forward.",
+    name: "Sharon — Rove Concepts",
+    role: "Shopify Development",
   },
   {
     quote: "From discovery to launch, Percian was professional and communicative. Our government system works flawlessly.",

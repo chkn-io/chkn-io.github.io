@@ -31,8 +31,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <ScrollLink to="hero" smooth duration={500} className="cursor-pointer inline-block mb-4">
-              <span className="text-2xl font-bold gradient-text">PB</span>
-              <span className="text-white font-light text-xl ml-1">ercian Borja</span>
+              <span className="text-2xl font-bold gradient-text">P</span>ercian <span className="text-2xl font-bold gradient-text">B</span>orja
             </ScrollLink>
             <p className="text-gray-500 text-sm leading-relaxed max-w-[220px]">
               Full Stack Developer & Data Analyst based in the Philippines. Available for remote work worldwide.

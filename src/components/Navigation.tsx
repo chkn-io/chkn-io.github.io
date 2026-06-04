@@ -47,8 +47,7 @@ const Navigation = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="hero" smooth={true} duration={500} className="cursor-pointer">
-              <span className="text-xl font-bold gradient-text">PB</span>
-              <span className="text-white font-light text-xl ml-1 hidden sm:inline">ercian Borja</span>
+              <span className="text-xl font-bold gradient-text">P</span>ercian <span className="text-xl font-bold gradient-text">B</span>orja
             </Link>
 
             {/* Desktop Menu */}

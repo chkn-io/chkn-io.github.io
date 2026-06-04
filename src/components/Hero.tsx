@@ -2,49 +2,61 @@
 import { useRef } from "react";
 import { Link } from "react-scroll";
 import { TypeAnimation } from 'react-type-animation';
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { ArrowDown, Download, Calendar } from "lucide-react";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
 
-  // Multi-layer parallax transforms
-  const bg1Y = useTransform(scrollY, [0, 900], [0, 280]);   // background orbs – slowest
-  const bg2Y = useTransform(scrollY, [0, 900], [0, 160]);   // mid floating shapes
+  // Mouse tracking
+  const rawMouseX = useMotionValue(0);
+  const rawMouseY = useMotionValue(0);
+  const mouseX = useSpring(rawMouseX, { stiffness: 60, damping: 18 });
+  const mouseY = useSpring(rawMouseY, { stiffness: 60, damping: 18 });
+
+  // Only the glow circle behind the photo moves
+  const glowX = useTransform(mouseX, [-1, 1], [-50, 50]);
+  const glowY = useTransform(mouseY, [-1, 1], [-35, 35]);
+
+  // 3D tilt on image card
+  const tiltRotateX = useTransform(mouseY, [-1, 1], [14, -14]);
+  const tiltRotateY = useTransform(mouseX, [-1, 1], [-14, 14]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = heroRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    rawMouseX.set((e.clientX - rect.left) / rect.width * 2 - 1);
+    rawMouseY.set((e.clientY - rect.top) / rect.height * 2 - 1);
+  };
+
+  const handleMouseLeave = () => {
+    rawMouseX.set(0);
+    rawMouseY.set(0);
+  };
+
+  // Scroll parallax
+  const bg1Y = useTransform(scrollY, [0, 900], [0, 280]);
+  const bg2Y = useTransform(scrollY, [0, 900], [0, 160]);
   const heroOpacity = useTransform(scrollY, [0, 600], [1, 0]);
-  const imageY = useTransform(scrollY, [0, 900], [0, 60]);  // image moves slightly
+  const imageY = useTransform(scrollY, [0, 900], [0, 60]);
+
 
   return (
     <section
       id="hero"
       ref={heroRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="relative min-h-screen overflow-hidden bg-[#0D1117]"
     >
-      {/* ── Layer 1: Background gradient mesh ── */}
-      <motion.div style={{ y: bg1Y }} className="absolute inset-0 scale-110 pointer-events-none">
-        {/* Primary emerald orb */}
+      {/* ── Layer 1: Static background orb (scroll parallax only) ── */}
+      <motion.div style={{ y: bg1Y }} className="absolute inset-0 scale-110 pointer-events-none z-0">
         <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-emerald-500/8 rounded-full blur-[120px] animate-glow-pulse" />
-        {/* Grid pattern overlay */}
         <div className="absolute inset-0 grid-pattern opacity-40" />
       </motion.div>
 
-      {/* ── Layer 2: Mid-ground floating shapes ── */}
-      <motion.div style={{ y: bg2Y }} className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Rotating ring top-right */}
-        <div className="absolute top-20 right-16 w-40 h-40 border border-white/8 rounded-full animate-rotate-slow" />
-        <div className="absolute top-20 right-16 w-32 h-32 border border-white/5 rounded-full animate-rotate-reverse translate-x-4 translate-y-4" />
-        {/* Floating hexagon left */}
-        <div className="absolute top-[30%] left-8 w-16 h-16 border-2 border-white/10 rotate-45 animate-float" />
-        {/* Dots grid bottom-left */}
-        <div className="absolute bottom-[20%] left-16 grid grid-cols-4 gap-3">
-          {Array.from({ length: 16 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/15" />
-          ))}
-        </div>
-        {/* Diagonal line accent */}
-        <div className="absolute top-0 right-[30%] w-[1px] h-[200px] bg-gradient-to-b from-transparent via-white/12 to-transparent" />
-      </motion.div>
+     
 
       {/* ── Layer 3: Foreground content ── */}
       <motion.div style={{ opacity: heroOpacity }} className="relative z-10 min-h-screen flex items-center">
@@ -53,17 +65,6 @@ const Hero = () => {
 
             {/* ── Text Content ── */}
             <div className="lg:w-1/2 order-2 lg:order-1">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-sm font-medium mb-6">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Available for freelance work
-                </span>
-              </motion.div>
-
               <motion.h1
                 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
                 initial={{ opacity: 0, y: 40 }}
@@ -141,7 +142,7 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.85 }}
               >
                 {[
-                  { value: "5+", label: "Years Experience" },
+                  { value: "13+", label: "Years Experience" },
                   { value: "50+", label: "Projects Delivered" },
                   { value: "20+", label: "Happy Clients" },
                 ].map((stat) => (
@@ -166,10 +167,22 @@ const Hero = () => {
                 <div className="absolute inset-[-20px] rounded-full border border-white/8 animate-rotate-slow" />
                 <div className="absolute inset-[-40px] rounded-full border border-white/4 animate-rotate-reverse" />
 
-                {/* Image container */}
-                <div className="relative w-[280px] h-[280px] md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px]">
-                  {/* Background glow */}
-                  <div className="absolute inset-0 bg-white/3 rounded-full blur-[60px]" />
+                {/* 3D tilt wrapper */}
+                <motion.div
+                  style={{
+                    rotateX: tiltRotateX,
+                    rotateY: tiltRotateY,
+                    transformStyle: "preserve-3d",
+                    perspective: 1000,
+                  }}
+                  transition={{ type: "spring", stiffness: 80, damping: 20 }}
+                  className="relative w-[280px] h-[280px] md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px]"
+                >
+                  {/* Background glow — moves with mouse */}
+                  <motion.div
+                    style={{ x: glowX, y: glowY }}
+                    className="absolute inset-[-40px] bg-emerald-500/20 rounded-full blur-[80px]"
+                  />
                   {/* Profile image */}
                   <div className="relative z-10 w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
                     <img
@@ -179,30 +192,10 @@ const Hero = () => {
                     />
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117]/60 via-transparent to-transparent" />
+                    {/* Subtle static shine */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
                   </div>
-
-                  {/* Floating badge - top left */}
-                  <motion.div
-                    className="absolute -top-4 -left-6 glass-card px-3 py-2 rounded-xl shadow-xl animate-float"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1.1 }}
-                  >
-                    <p className="text-white font-bold text-lg">5+</p>
-                    <p className="text-gray-400 text-xs">Years Exp.</p>
-                  </motion.div>
-
-                  {/* Floating badge - bottom right */}
-                  <motion.div
-                    className="absolute -bottom-4 -right-6 glass-card px-3 py-2 rounded-xl shadow-xl animate-float-delay-1"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1.25 }}
-                  >
-                    <p className="text-white font-bold text-lg">50+</p>
-                    <p className="text-gray-400 text-xs">Projects</p>
-                  </motion.div>
-                </div>
+                </motion.div>
               </motion.div>
             </div>
 
