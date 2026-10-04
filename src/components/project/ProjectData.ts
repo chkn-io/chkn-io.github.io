@@ -233,6 +233,13 @@ const websitesData: Website[] = [
     category: "Religious/Community"
   },
   {
+    title: "Saint Michael the Archangel Parish",
+    url: "https://sanmigueldeorion.com/",
+    description: "Official website for the Catholic parish in Orion, Bataan, featuring Mass schedules, sacraments, events, and parish ministries",
+    image: "https://supabase.sanmigueldeorion.com/storage/v1/object/public/parish-media/home/about/6c3d9ef6-f514-4f9e-b877-cba2a51b3adf.webp",
+    category: "Religious/Community"
+  },
+  {
     title: "His House Foundation",
     url: "https://hishousefound.netlify.app/",
     description: "Community Campus & FUEL Academy turning an old hotel into a campus of hope through comprehensive community resources",

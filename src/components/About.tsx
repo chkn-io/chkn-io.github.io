@@ -133,6 +133,8 @@ const About = () => {
                 <img
                   src="/uploads/c6340ee8-1b05-4d88-b834-224eb1b4e773.png"
                   alt="Developer Illustration"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117]/50 via-transparent to-transparent" />
